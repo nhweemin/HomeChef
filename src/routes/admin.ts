@@ -169,9 +169,15 @@ router.put('/chefs/:id/approve', async (req, res) => {
     });
   } catch (error) {
     console.error('Approve chef error:', error);
+    const err = error as any;
+    console.error('Error details:', {
+      name: err.name,
+      message: err.message,
+      stack: err.stack
+    });
     return res.status(500).json({
       success: false,
-      message: 'Error processing chef application'
+      message: `Error processing chef application: ${err.message || 'Unknown error'}`
     });
   }
 });
