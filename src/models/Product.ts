@@ -79,7 +79,8 @@ const productSchema = new Schema<IProduct>({
     enum: [
       'Italian', 'Chinese', 'Indian', 'Malay', 'Mexican', 'American', 'Japanese',
       'Thai', 'French', 'Korean', 'Mediterranean', 'Greek', 'Spanish',
-      'Vietnamese', 'Lebanese', 'Moroccan', 'Other'
+      'Vietnamese', 'Lebanese', 'Moroccan', 'Indonesian', 'Hong Kong', 'Taiwanese', 
+      'Health Food', 'Fusion', 'Other'
     ]
   },
   images: {

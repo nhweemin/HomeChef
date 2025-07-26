@@ -90,9 +90,15 @@ const startServer = async () => {
   try {
     await connectDB();
     app.listen(PORT, () => {
+      const environment = process.env.NODE_ENV || 'development';
+      const healthCheckUrl = environment === 'production' 
+        ? 'https://homechef-production.up.railway.app/health'
+        : `http://localhost:${PORT}/health`;
+        
       console.log(`🚀 HomeChef API server running on port ${PORT}`);
-      console.log(`📱 Environment: ${process.env.NODE_ENV || 'development'}`);
-      console.log(`🌐 Health check: http://localhost:${PORT}/health`);
+      console.log(`📱 Environment: ${environment}`);
+      console.log(`🌐 Health check: ${healthCheckUrl}`);
+      console.log(`🔗 API URL: ${environment === 'production' ? 'https://homechef-production.up.railway.app' : `http://localhost:${PORT}`}`);
     });
   } catch (error) {
     console.error('❌ Failed to start server:', error);

@@ -151,8 +151,7 @@ const chefSchema = new Schema<IChef>({
     },
     reviewedAt: Date,
     reviewedBy: {
-      type: Schema.Types.ObjectId,
-      ref: 'User'
+      type: String
     },
     documents: {
       healthPermit: String,
